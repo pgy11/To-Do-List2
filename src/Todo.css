@@ -1,0 +1,27 @@
+.todo__listItem {
+    align-items: center;
+    justify-content: center;
+    border: 8px outset rgba(0, 0, 0, 0.233);
+    height: 30px;
+    border-radius: 20px / 10px;
+    width: 40%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.todo__listItem > span{
+    display: inline-block;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.todo__deleteIcon{
+    float: right;        
+}
+
+
+
+

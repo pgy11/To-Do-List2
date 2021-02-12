@@ -1,8 +1,8 @@
 .todo__listItem {
     align-items: center;
     justify-content: center;
-    border: 8px outset rgba(0, 0, 0, 0.233);
-    height: 30px;
+    border: 8px outset rgba(51, 201, 13, 0.452);
+    height: 25px;
     border-radius: 20px / 10px;
     width: 40%;
     margin: auto;
@@ -19,7 +19,9 @@
 }
 
 .todo__deleteIcon{
-    float: right;        
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
 }
 
 

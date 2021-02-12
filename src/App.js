@@ -2,22 +2,29 @@ import "./App.css";
 import React, { useState } from "react";
 import { Button, FormControl, InputLabel, Input, FormHelperText, } from "@material-ui/core";
 import Todo from "./Todo";
+import {useStateValue} from './StateProvider'
+
+let id = 1;
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [{todos}, dispatch] = useStateValue();
   const [input, setInput] = useState("");
 
   const addTodo = event => {
-    // this will fire off when we click open the button
-    event.preventDefault(); // stop refresh when input is submitted
-    setTodos([...todos, input]); // add input value to todos
-    setInput(""); // clear up the input after clicking add button
-    console.log(todos);
+    event.preventDefault();
+    dispatch({
+      type: 'ADD_TO_TODOS',
+      item: {
+        id: id++,
+        text: input
+      }
+    });
+    setInput('');
   };
 
   return (
     <div className="App">
-      <h1>🔥🔥 To do list 🔥🔥</h1><br/>
+      <h1>🔥🔥 To do list 🔥🔥</h1><br />
       <form>
         <FormControl>
           <InputLabel>해야할 일 📌</InputLabel>
@@ -27,15 +34,16 @@ function App() {
           />
         </FormControl>
 
-        <Button disabled={!input} type="submit" onClick={addTodo} variant="contained" color="primary">
+        <Button disabled={!input} type='submit' onClick={addTodo} variant="contained" color="primary">
           Add todo
         </Button>
       </form>
-      <ul className='app__todo'>
-        {todos.map(todo => (
-          <Todo text={todo} />
+
+      <div className='app__todo'>
+        {todos.map(item =>(
+           <Todo id={item.id} text={item.text}/>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
     align-items: center;
     justify-content: center;
     border: 8px outset rgba(51, 201, 13, 0.452);
-    height: 25px;
+    height: 50px;
     border-radius: 20px / 10px;
     width: 40%;
     margin: auto;
@@ -10,6 +10,7 @@
 }
 
 .todo__listItem > span{
+    padding-top: 10px;
     display: inline-block;
     width: 80%;
     white-space: nowrap;
@@ -19,6 +20,7 @@
 }
 
 .todo__deleteIcon{
+    padding-top: 10px;
     float: right;
     padding-right: 10px;
     cursor: pointer;
